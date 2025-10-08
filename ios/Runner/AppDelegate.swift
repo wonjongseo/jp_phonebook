@@ -13,7 +13,7 @@ class AppDelegate: FlutterAppDelegate {
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
-        
+        GeneratedPluginRegistrant.register(with: self)
         guard let controller = window?.rootViewController as? FlutterViewController else {
             return super.application(application, didFinishLaunchingWithOptions: launchOptions)
         }
@@ -22,6 +22,14 @@ class AppDelegate: FlutterAppDelegate {
         channel.setMethodCallHandler { [weak self] call, result in
             guard let self = self else { return }
             switch call.method {
+                
+            case "getExtensionStatus":
+                self.getExtensionStatus { result($0) }
+                
+            case "openAppSettings":
+                let ok = self.openAppSettings()
+                result(ok)
+                
             case "updateIdentifiers":
                 guard let jsonStr = call.arguments as? String,
                       let data = jsonStr.data(using: .utf8) else {
@@ -44,6 +52,29 @@ class AppDelegate: FlutterAppDelegate {
         }
         
         return super.application(application, didFinishLaunchingWithOptions: launchOptions)
+    }
+    
+
+    private func getExtensionStatus(_ completion: @escaping (String) -> Void) {
+      CXCallDirectoryManager.sharedInstance
+        .getEnabledStatusForExtension(withIdentifier: extensionBundleId) { status, error in
+          if let e = error { completion("error: \(e.localizedDescription)"); return }
+          switch status {
+          case .enabled:  completion("enabled")
+          case .disabled: completion("disabled")
+          case .unknown:  completion("unknown")
+          @unknown default: completion("unknown")
+          }
+        }
+    }
+    
+    private func openAppSettings() -> Bool {
+      guard let url = URL(string: UIApplication.openSettingsURLString) else { return false }
+      if UIApplication.shared.canOpenURL(url) {
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        return true
+      }
+      return false
     }
             
     private func saveJsonToAppGroup(data: Data) throws {
