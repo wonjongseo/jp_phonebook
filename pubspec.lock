@@ -17,6 +17,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.2"
+  call_log:
+    dependency: "direct main"
+    description:
+      name: call_log
+      sha256: "6ad3e241efa2bc82febc537fe11112a62c94eb5db826bd532500574ba34a78a2"
+      url: "https://pub.dev"
+    source: hosted
+    version: "6.0.1"
   change_app_package_name:
     dependency: "direct main"
     description:
@@ -86,6 +94,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_contacts:
+    dependency: "direct main"
+    description:
+      name: flutter_contacts
+      sha256: "388d32cd33f16640ee169570128c933b45f3259bddbfae7a100bb49e5ffea9ae"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.9+2"
   flutter_lints:
     dependency: "direct dev"
     description:
@@ -94,6 +110,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.0.0"
+  flutter_phone_direct_caller:
+    dependency: "direct main"
+    description:
+      name: flutter_phone_direct_caller
+      sha256: "8f166b12391572ce5872feeac3f4b47f455ee314ef221d98ba160c296ae2fad3"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.2.1"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -288,6 +312,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.2.1"
+  phone_state:
+    dependency: "direct main"
+    description:
+      name: phone_state
+      sha256: "291f7444e68f9a504afa8c7ceee42a5bbfe7131f059439e4e8d23d9d347f1157"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.1.1"
   platform:
     dependency: transitive
     description:
