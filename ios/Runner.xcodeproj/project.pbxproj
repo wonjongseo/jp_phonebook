@@ -104,10 +104,6 @@
 			exceptions = (
 				4A59A7782E95E91800B39FC3 /* Exceptions for "PhoneBookCallDirectory" folder in "PhoneBookCallDirectory" target */,
 			);
-			explicitFileTypes = {
-			};
-			explicitFolders = (
-			);
 			path = PhoneBookCallDirectory;
 			sourceTree = "<group>";
 		};
@@ -312,7 +308,6 @@
 				};
 			};
 			buildConfigurationList = 97C146E91CF9000F007C117D /* Build configuration list for PBXProject "Runner" */;
-			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -320,6 +315,7 @@
 				Base,
 			);
 			mainGroup = 97C146E51CF9000F007C117D;
+			preferredProjectObjectVersion = 77;
 			productRefGroup = 97C146EF1CF9000F007C117D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
